@@ -4,7 +4,10 @@
 
 <p><%= @blog.content %></p>
 
+<%= render 'comments/form' %>
+<%= render 'comments/comment' %>
 
 <%= link_to "Edit", edit_blog_path(@blog.id) %>
 <%= link_to "Delete", blog_path(@blog.id), method: :delete %>
 <%= link_to "Back", blogs_path %>
+

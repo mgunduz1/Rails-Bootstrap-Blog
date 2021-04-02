@@ -1,0 +1,8 @@
+<% @comments.each do |x| %>
+
+<p>
+<%= x.comment %>
+<%= link_to "Delete", blog_comment_path(x.blog_id, x.id), method: :delete %>
+</p>
+
+<% end %>
