@@ -1,6 +1,21 @@
+<nav class="navbar navbar-light bg-light">
+  <form class="container-fluid justify-content-between">
+  <div>
+    <%= link_to "Create a New Post", new_blog_path, class:"btn btn-success me-2" %>
+    </div>
+    <div>
+    <% @categories.each do |category| %>
+    <%= link_to category.category, blogs_path(:catg => category.id), class:"btn btn-sm btn-outline-secondary" %>
+    <span class="badge rounded-pill bg-warning text-dark"><%= category.blogs.count %></span>
+    <% end %>
+    </div>
+    <div>
+    <%= link_to "Back to Main Page", blogs_path, class:"btn btn-secondary me-2" %>
+    </div>
+  </form>
+</nav>
 
 
-<h1 class="text-center my-3"><%= link_to "Create Blog", new_blog_path %></h1>
 
 <div class="container">
 <div class="row">
@@ -8,7 +23,7 @@
     <div class="col-md-4">
         <div class="card mt-3">
             <div class="card-header">
-                <h3><%= link_to blog.title, blog_path(blog.id) %></h3>
+                <%= link_to blog.title, blog_path(blog.id), class:"fs-2 text-decoration-none" %>
             </div>
             <div class="card-body">
                 <%= link_to "View", blog_path(blog.id), class: 'btn btn-primary' %>
@@ -16,6 +31,10 @@
         </div>
     </div>
     <% end %>
+    
+
+
+    
 
     </div>
 </div>
